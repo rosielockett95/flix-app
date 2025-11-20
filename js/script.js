@@ -476,24 +476,19 @@ function addCommasToNumber(number) {
 
 // Init App
 function init() {
-  switch (global.currentPage) {
-    case "/":
-    case "/index.html":
-      displayPopularMovies();
-      displaySlider();
-      break;
-    case "/shows.html":
-      displayPopularShows();
-      break;
-    case "/movie-details.html":
-      displayMovieDetails();
-      break;
-    case "/tv-details.html":
-      displayShowDetails();
-      break;
-    case "/search.html":
-      search();
-      break;
+  const page = window.location.pathname;
+
+  if (page === "/" || page.includes("index")) {
+    displayPopularMovies();
+    displaySlider();
+  } else if (page.includes("shows")) {
+    displayPopularShows();
+  } else if (page.includes("movie-details")) {
+    displayMovieDetails();
+  } else if (page.includes("tv-details")) {
+    displayShowDetails();
+  } else if (page.includes("search")) {
+    search();
   }
 
   highlightActiveLink();
