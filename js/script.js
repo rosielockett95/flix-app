@@ -64,7 +64,7 @@ async function displayPopularShows() {
               src="https://image.tmdb.org/t/p/w500${show.poster_path}"
               class="card-img-top"
               alt=${show.name}"
-            /`
+            />`
             : `    <img
               src="images/no-image.jpg"
               class="card-img-top"
@@ -102,7 +102,7 @@ async function displayShowDetails() {
               src="https://image.tmdb.org/t/p/w500${show.poster_path}"
               class="card-img-top"
               alt="${show.name}"
-            /`
+            />`
                 : `    <img
               src="images/no-image.jpg"
               class="card-img-top"
