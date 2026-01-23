@@ -199,10 +199,10 @@ async function displayMovieDetails() {
           <h2>Movie Info</h2>
           <ul>
             <li><span class="text-secondary">Budget:</span> $${addCommasToNumber(
-              movie.budget
+              movie.budget,
             )}</li>
             <li><span class="text-secondary">Revenue:</span> $${addCommasToNumber(
-              movie.revenue
+              movie.revenue,
             )}</li>
             <li><span class="text-secondary">Runtime:</span> ${
               movie.runtime
@@ -253,7 +253,7 @@ async function search() {
 
     global.search.page = page;
     global.search.totalPagespage = total_pages;
-    global.search.totalResults = total_Results;
+    global.search.totalResults = total_results;
 
     if (results.length === 0) {
       showAlert("No results found");
@@ -309,9 +309,8 @@ function displaySearchResults(results) {
             </p>
           </div>`;
 
-    document.querySelector(
-      "#search-results-heading"
-    ).innerHTML = `<h2>${results.length} of ${global.search.totalResults} results for ${global.search.term}</h2>`;
+    document.querySelector("#search-results-heading").innerHTML =
+      `<h2>${results.length} of ${global.search.totalResults} results for ${global.search.term}</h2>`;
 
     document.querySelector("#search-results").appendChild(div);
   });
@@ -414,7 +413,7 @@ async function fetchAPIData(endpoint) {
   showSpinner();
 
   const response = await fetch(
-    `${API_URL}${endpoint}?api_key=${API_KEY}&language=en-us`
+    `${API_URL}${endpoint}?api_key=${API_KEY}&language=en-us`,
   );
 
   const data = await response.json();
@@ -432,7 +431,7 @@ async function searchAPIData() {
   showSpinner();
 
   const response = await fetch(
-    `${API_URL}search/${global.search.type}?api_key=${API_KEY}&language=en-us&query=${global.search.term}&page=${global.search.page}`
+    `${API_URL}search/${global.search.type}?api_key=${API_KEY}&language=en-us&query=${global.search.term}&page=${global.search.page}`,
   );
 
   const data = await response.json();
